@@ -5,6 +5,9 @@ import com.nsbm.ems.departmentservice.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/department")
 public class DepartmentController {
@@ -29,5 +32,20 @@ public class DepartmentController {
     @DeleteMapping("/delete/{id}")
     public String deleteDepartment(@PathVariable int id) {
         return departmentService.deleteDepartment(id);
+    }
+
+    /*@GetMapping("/{id}")
+    public Department getDepartmentById(@PathVariable int id) {
+        return departmentService.(id);
+    }*/
+
+    @GetMapping("/all")
+    public List<Department> getAllDepartments() {
+        return departmentService.getDepartment();
+    }
+
+    @GetMapping("/search")
+    public Optional<Department> searchDepartments(@RequestParam Integer id) {
+        return departmentService.searchDepartment(id);
     }
 }

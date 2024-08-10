@@ -5,6 +5,7 @@ import com.nsbm.ems.departmentservice.repository.DepartmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -20,6 +21,15 @@ public class DepartmentService {
     public String saveDepartment(Department department) {
         departmentRepository.save(department);
         return "Department saved successfully";
+    }
+    public List getDepartment() {
+        return departmentRepository.findAll();
+        //return "Department saved successfully";
+    }
+
+    public Optional<Department> searchDepartment(Integer id) {
+        return departmentRepository.findById(id);
+        //return "Department saved successfully";
     }
 
     public String updateDepartment(int id, Department department) {
