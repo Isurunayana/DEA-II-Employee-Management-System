@@ -39,5 +39,10 @@ public class NotificationConroller {
 
         return notificationService.getNotificationById(nId);
     }
-    
+
+    @PutMapping("/update")
+    public String updateNotification(@RequestParam Long nId, @RequestBody Notification notification) {
+
+        return notificationService.updateNotification(nId,notification);
+    }
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class NotificationService {
@@ -33,5 +34,17 @@ public class NotificationService {
         return notificationRepository.findById(nId).get();
     }
 
+    public String updateNotification(Long nId,Notification newNotification) {
+
+        Optional<Notification> credentialOptional = notificationRepository.findById(nId);
+        Notification notification = credentialOptional.get();
+        notification.setMsg(newNotification.getMsg());
+        notification.setEmpNic(newNotification.getEmpNic());
+        notification.setTimeStamp(newNotification.getTimeStamp());
+
+        return notificationRepository.save(notification).getMsg();
+    }
+
 }
+
 
