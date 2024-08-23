@@ -1,18 +1,19 @@
 package com.nsbm.ems.notificationservice.controller;
 
 import com.nsbm.ems.notificationservice.model.Notification;
-import com.nsbm.ems.notificationservice.service.NotificationService;
+import com.nsbm.ems.notificationservice.service.implementation.NotificationServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/notification")
+@RequestMapping("api/v1/notification")
 public class NotificationConroller {
 
     @Autowired
-    private NotificationService notificationService;
+    private NotificationServiceImpl notificationService;
 
     @PostMapping("/save")
     public String saveNotification(@RequestBody Notification notification) {
@@ -24,18 +25,17 @@ public class NotificationConroller {
     @DeleteMapping("/{nId}")
     public String deleteNotification(@PathVariable Long nId) {
 
-        notificationService.deleteNotification(nId);
-        return "Successfully deleted notification";
+        return notificationService.deleteNotification(nId);
     }
 
     @GetMapping("/viewAll")
-    public List<Notification> viewAllNotifications() {
+    public ResponseEntity<?> viewAllNotifications() {
 
         return notificationService.getAllNotifications();
     }
 
     @GetMapping("/{nId}")
-    public Notification viewNotification(@PathVariable Long nId) {
+    public ResponseEntity<?> viewNotification(@PathVariable Long nId) {
 
         return notificationService.getNotificationById(nId);
     }
