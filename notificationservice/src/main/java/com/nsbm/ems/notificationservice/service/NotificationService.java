@@ -15,8 +15,12 @@ public class NotificationService {
     private NotificationRepository notificationRepository;
 
     public String saveNotification(Notification notification) {
-        notificationRepository.save(notification);
-        return "Notification saved Successfully";
+        try {
+            notificationRepository.save(notification);
+            return "Notification saved Successfully";
+        } catch (Exception e) {
+            return "Something went wrong";
+        }
     }
 
     public String deleteNotification(Long nId) {
