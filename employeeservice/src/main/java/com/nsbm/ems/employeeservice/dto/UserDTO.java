@@ -6,9 +6,9 @@ import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Data // Generates getters, setters, toString, equals, and hashCode methods for all fields
 public class UserDTO {
-    private int id;
-    private String name;
-    private String address;
+    private int id; // Unique identifier for the Employee
+    private String name; //employee name
+    private String address; // employee address
 }
