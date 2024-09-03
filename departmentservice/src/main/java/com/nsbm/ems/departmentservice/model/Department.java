@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @NoArgsConstructor
+//add doc comment all the class -->
 public class Department {
 
     @Id

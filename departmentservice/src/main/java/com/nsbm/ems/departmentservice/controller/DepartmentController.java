@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-
+//add document comment   --->
 @RestController
 @RequestMapping("/department")
 public class DepartmentController {
@@ -40,7 +40,7 @@ public class DepartmentController {
     }*/
 
     @GetMapping("/all")
-    public List<Department> getAllDepartments() {
+    public List getAllDepartments() {
         return departmentService.getDepartment();
     }
 

@@ -21,6 +21,10 @@ public class DepartmentService {
     public String saveDepartment(Department department) {
         departmentRepository.save(department);
         return "Department saved successfully";
+        //create a package call utill and add the class constant class -->
+                //creta a package call impl add class DeparmentServiceImpl-interface(only signature) move this code to impl class -->
+                //public class DeparmentServiceImpl extends DeparmentService  -->
+                //add custom exception(package DepartmentNotFound) -->
     }
     public List getDepartment() {
         return departmentRepository.findAll();
