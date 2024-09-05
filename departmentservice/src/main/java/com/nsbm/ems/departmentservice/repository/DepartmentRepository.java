@@ -9,6 +9,3 @@ public interface DepartmentRepository extends JpaRepository<Department, Integer>
 
     Optional<Department> findByName(String name);
 }
-
-//add the custom method -->
-       // ex search by id -->
