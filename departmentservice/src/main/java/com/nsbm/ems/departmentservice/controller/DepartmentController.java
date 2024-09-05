@@ -1,24 +1,29 @@
 package com.nsbm.ems.departmentservice.controller;
 
 import com.nsbm.ems.departmentservice.model.Department;
-import com.nsbm.ems.departmentservice.service.DepartmentService;
+import com.nsbm.ems.departmentservice.service.implementation.DepartmentServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-//add document comment   --->
+//add document comment   ---> correct
 @RestController
 @RequestMapping("/department")
 public class DepartmentController {
 
-    private final DepartmentService departmentService;
+    private final DepartmentServiceImpl departmentService;
 
     @Autowired
-    public DepartmentController(DepartmentService departmentService) {
+    public DepartmentController(DepartmentServiceImpl departmentService) {
         this.departmentService = departmentService;
     }
 
+    /**
+     *
+     * @param department
+     * @return
+     */
     @PostMapping("/save")
     public String saveDepartment(@RequestBody Department department) {
         return departmentService.saveDepartment(department);
@@ -34,11 +39,6 @@ public class DepartmentController {
         return departmentService.deleteDepartment(id);
     }
 
-    /*@GetMapping("/{id}")
-    public Department getDepartmentById(@PathVariable int id) {
-        return departmentService.(id);
-    }*/
-
     @GetMapping("/all")
     public List getAllDepartments() {
         return departmentService.getDepartment();
@@ -47,5 +47,10 @@ public class DepartmentController {
     @GetMapping("/search")
     public Optional<Department> searchDepartments(@RequestParam Integer id) {
         return departmentService.searchDepartment(id);
+    }
+
+    @GetMapping("/searchbyname")
+    public Optional<Department> searchDepartmentsByName(@RequestParam String name) {
+        return departmentService.getDepartmentByName(name);
     }
 }
