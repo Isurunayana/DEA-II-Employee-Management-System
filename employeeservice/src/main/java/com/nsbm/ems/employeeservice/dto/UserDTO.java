@@ -11,4 +11,6 @@ public class UserDTO {
     private int id; // Unique identifier for the Employee
     private String name; //employee name
     private String address; // employee address
+    private String email;     // Employee email
+    private double salary;
 }
