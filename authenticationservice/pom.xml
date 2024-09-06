@@ -11,7 +11,7 @@
 	<groupId>com.nsbm.ems</groupId>
 	<artifactId>authenticationservice</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>authenticationservice</name>
+	<name>authentication service</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
@@ -64,6 +64,8 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
+
 	</dependencies>
 
 	<build>
