@@ -13,6 +13,7 @@ import java.util.Optional;
  * Provides endpoints for saving, updating, deleting, and retrieving department details.
  */
 @RestController
+@CrossOrigin(origins = "http://localhost:5173")
 @RequestMapping("/department")
 public class DepartmentController {
 
